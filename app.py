@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import json
 
 app = Flask(__name__)
 
@@ -15,12 +14,16 @@ def result():
         S = int(request.form["science"])
         SS = int(request.form["social"])
 
+        # Calculate total
         total = T + E + M + S + SS
 
+        # Calculate average
         average = total / 5
 
+        # Calculate percentage
         percentage = (total / 500) * 100
 
+        # Calculate grade
         if average >= 90:
             grade = "Grade A"
 
@@ -33,28 +36,7 @@ def result():
         else:
             grade = "Grade Fail"
 
-
-        # Store student result in Python dictionary
-
-        student = {
-            "tamil": T,
-            "english": E,
-            "maths": M,
-            "science": S,
-            "social": SS,
-            "total": total,
-            "average": average,
-            "percentage": percentage,
-            "grade": grade
-        }
-
-
-        # Store dictionary in JSON file
-
-        with open("students.json", "w") as file:
-            json.dump(student, file, indent=4)
-
-
+        # Display result
         return render_template(
             "index.html",
             tamil=T,
@@ -68,6 +50,7 @@ def result():
             grade=grade
         )
 
+    # GET request
     return render_template("index.html")
 
 
