@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ABCD School</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='mark.css') }}">
+</head>
+
+<body>
+
+    <h1>Student Result</h1>
+
+    <form method="POST">
+
+        <table>
+
+            <tr>
+                <td><label>Tamil</label></td>
+                <td>
+                    <input type="number" name="tamil" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>English</label></td>
+                <td>
+                    <input type="number" name="english" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Maths</label></td>
+                <td>
+                    <input type="number" name="maths" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Science</label></td>
+                <td>
+                    <input type="number" name="science" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Social</label></td>
+                <td>
+                    <input type="number" name="social" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Calculate Result</button>
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+
+
+    {% if total is defined %}
+
+    <div class="result">
+
+        <h2>----- Student Result -----</h2>
+
+        <p>Tamil : {{ tamil }}</p>
+        <p>English : {{ english }}</p>
+        <p>Maths : {{ maths }}</p>
+        <p>Science : {{ science }}</p>
+        <p>Social : {{ social }}</p>
+
+        <hr>
+
+        <p>Total : {{ total }}</p>
+
+        <p>Average : {{ average }}</p>
+
+        <p>Percentage : {{ percentage }}%</p>
+
+        <h3>{{ grade }}</h3>
+
+    </div>
+
+    {% endif %}
+
+</body>
+
+</html>

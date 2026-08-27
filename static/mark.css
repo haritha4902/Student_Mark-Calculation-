@@ -1,0 +1,53 @@
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: darkblue;
+}
+
+table {
+    margin: 30px auto;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: white;
+}
+
+td {
+    padding: 10px;
+}
+
+input {
+    padding: 8px;
+    width: 180px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: blue;
+}
+
+.result {
+    width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.result h2 {
+    color: darkblue;
+}
+
+.result h3 {
+    text-align: center;
+}
