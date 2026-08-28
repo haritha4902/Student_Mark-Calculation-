@@ -19,41 +19,55 @@
 
         <table>
 
+            <!-- Name -->
+            <tr>
+                <td><label>Name</label></td>
+                <td>
+                    <input type="text" name="name" required>
+                </td>
+            </tr>
+
+            <!-- Tamil -->
             <tr>
                 <td><label>Tamil</label></td>
                 <td>
-                    <input type="number" name="tamil" required>
+                    <input type="number" name="tamil" min="0" max="100" required>
                 </td>
             </tr>
 
+            <!-- English -->
             <tr>
                 <td><label>English</label></td>
                 <td>
-                    <input type="number" name="english" required>
+                    <input type="number" name="english" min="0" max="100" required>
                 </td>
             </tr>
 
+            <!-- Maths -->
             <tr>
                 <td><label>Maths</label></td>
                 <td>
-                    <input type="number" name="maths" required>
+                    <input type="number" name="maths" min="0" max="100" required>
                 </td>
             </tr>
 
+            <!-- Science -->
             <tr>
                 <td><label>Science</label></td>
                 <td>
-                    <input type="number" name="science" required>
+                    <input type="number" name="science" min="0" max="100" required>
                 </td>
             </tr>
 
+            <!-- Social -->
             <tr>
                 <td><label>Social</label></td>
                 <td>
-                    <input type="number" name="social" required>
+                    <input type="number" name="social" min="0" max="100" required>
                 </td>
             </tr>
 
+            <!-- Button -->
             <tr>
                 <td colspan="2">
                     <button type="submit">Calculate Result</button>
@@ -65,27 +79,67 @@
     </form>
 
 
+    <!-- Result -->
     {% if total is defined %}
 
     <div class="result">
 
         <h2>----- Student Result -----</h2>
 
-        <p>Tamil : {{ tamil }}</p>
-        <p>English : {{ english }}</p>
-        <p>Maths : {{ maths }}</p>
-        <p>Science : {{ science }}</p>
-        <p>Social : {{ social }}</p>
+        <p><strong>Name:</strong> {{ name }}</p>
 
         <hr>
 
-        <p>Total : {{ total }}</p>
+        <p>
+            <strong>Tamil:</strong>
+            {{ tamil }}
+            | Grade: {{ tamil_grade }}
+        </p>
 
-        <p>Average : {{ average }}</p>
+        <p>
+            <strong>English:</strong>
+            {{ english }}
+            | Grade: {{ english_grade }}
+        </p>
 
-        <p>Percentage : {{ percentage }}%</p>
+        <p>
+            <strong>Maths:</strong>
+            {{ maths }}
+            | Grade: {{ maths_grade }}
+        </p>
 
-        <h3>{{ grade }}</h3>
+        <p>
+            <strong>Science:</strong>
+            {{ science }}
+            | Grade: {{ science_grade }}
+        </p>
+
+        <p>
+            <strong>Social:</strong>
+            {{ social }}
+            | Grade: {{ social_grade }}
+        </p>
+
+        <hr>
+
+        <p>
+            <strong>Total:</strong>
+            {{ total }} / 500
+        </p>
+
+        <p>
+            <strong>Average:</strong>
+            {{ average }}
+        </p>
+
+        <p>
+            <strong>Percentage:</strong>
+            {{ percentage }}%
+        </p>
+
+        <h3>
+            Overall Grade: {{ overall_grade }}
+        </h3>
 
     </div>
 
@@ -94,3 +148,4 @@
 </body>
 
 </html>
+```
