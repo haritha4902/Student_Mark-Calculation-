@@ -24,60 +24,54 @@ def result():
 
     if request.method == "POST":
 
-        # Get student name from HTML form
+        # Get student name
         name = request.form["name"]
 
-        # Get marks from HTML form
+        # Get marks
         T = int(request.form["tamil"])
         E = int(request.form["english"])
         M = int(request.form["maths"])
         S = int(request.form["science"])
         SS = int(request.form["social"])
 
-        # Calculate total
+        # Total
         total = T + E + M + S + SS
 
-        # Calculate average
+        # Average
         average = total / 5
 
-        # Calculate percentage
+        # Percentage
         percentage = (total / 500) * 100
 
-        # Calculate grade for each subject
+        # Subject grades
         tamil_grade = calculate_grade(T)
         english_grade = calculate_grade(E)
         maths_grade = calculate_grade(M)
         science_grade = calculate_grade(S)
         social_grade = calculate_grade(SS)
 
-        # Calculate overall grade
+        # Overall grade
         overall_grade = calculate_grade(percentage)
 
-        # Send result to HTML
         return render_template(
             "index.html",
-
             name=name,
-
             tamil=T,
             english=E,
             maths=M,
             science=S,
             social=SS,
-
             tamil_grade=tamil_grade,
             english_grade=english_grade,
             maths_grade=maths_grade,
             science_grade=science_grade,
             social_grade=social_grade,
-
             total=total,
             average=average,
             percentage=percentage,
             overall_grade=overall_grade
         )
 
-    # GET request
     return render_template("index.html")
 
 
